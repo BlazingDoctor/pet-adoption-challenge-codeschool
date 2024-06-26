@@ -35,16 +35,16 @@
       <div id="Applications" v-if="applicationtoggle">
         <h2>Add Applications</h2>
         <input v-model="newApplications.name" type="text" />
-        <input v-model="newApplications.phonenumber" type="text" />
+        <input v-model="newApplications.phoneNumber" type="text" />
         <input v-model="newApplications.email" type="text" />
-        <input v-model="newApplications.petid" type="text" />
+        <input v-model="newApplications.petId" type="text" />
         <button v-on:click="addApplications">addApplication</button>
 
         <h2>Applications</h2>
         <ul>
           <li v-for="(application, index) in applications">
-            {{ application.name }} - {{ application.phonenumber }} - {{
-            application.email }} - {{ application.petid }}
+            {{ application.name }} - {{ application.phoneNumber }} - {{
+            application.email }} - {{ application.petId }}
           </li>
         </ul>
       </div>

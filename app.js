@@ -9,17 +9,6 @@ Vue.createApp({
       applicationtoggle: false,
       pettoggle: true,
 
-      petName: "",
-      petSpecies: "",
-      petBreed: "",
-      petAge: "",
-      petGender: "",
-
-      appName: "",
-      appPhonenumber: "",
-      appEmail: "",
-      appPetid: "",
-
       newPets: {
         name: "",
         species: "",
@@ -29,9 +18,9 @@ Vue.createApp({
       },
       newApplications: {
         name: "",
-        phonenumber: "",
+        phoneNumber: "",
         email: "",
-        petid: "",
+        petId: "",
       },
       deleteName: "",
     };
@@ -98,12 +87,12 @@ Vue.createApp({
       let encodedData =
         "name=" +
         encodeURIComponent(this.newApplications.name) +
-        "&phonenumber=" +
-        encodeURIComponent(this.newApplications.phonenumber) +
+        "&phoneNumber=" +
+        encodeURIComponent(this.newApplications.phoneNumber) +
         "&email=" +
         encodeURIComponent(this.newApplications.email) +
-        "&petid=" +
-        encodeURIComponent(this.newApplications.petid);
+        "&petId=" +
+        encodeURIComponent(this.newApplications.petId);
 
       let requestOptions = {
         method: "POST",
@@ -118,9 +107,9 @@ Vue.createApp({
 
         this.newApplications = {
           name: "",
-          phonenumber: "",
+          phoneNumber: "",
           email: "",
-          petid: "",
+          petId: "",
         };
         console.log(this.applications);
         this.loadApplications();
