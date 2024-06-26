@@ -6,6 +6,9 @@ Vue.createApp({
       pets: [],
       applications: [],
 
+      applicationtoggle: false,
+      pettoggle: true,
+
       petName: "",
       petSpecies: "",
       petBreed: "",
