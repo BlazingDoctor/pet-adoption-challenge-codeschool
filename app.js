@@ -57,7 +57,7 @@ Vue.createApp({
         "name=" +
         encodeURIComponent(this.newPets.name) +
         "&species=" +
-        encodeURIComponent(this.newPets.count) +
+        encodeURIComponent(this.newPets.species) +
         "&breed=" +
         encodeURIComponent(this.newPets.breed) +
         "&age=" +
@@ -153,6 +153,6 @@ Vue.createApp({
   created: function () {
     console.log("vue app loaded!");
     this.loadPets();
-    this.loadApplications();
+    // this.loadApplications();
   },
 }).mount("#app");

@@ -41,21 +41,21 @@ app.post("/pets", async function (request, response) {
   }
 });
 
-// app.delete("/pets/:id", async (request, response) => {
-//   try {
-//     let isDeleted = await model.Cats.findOneAndDelete({
-//       _id: request.params.id,
-//     });
-//     if (isDeleted) {
-//       console.log("Cat Removed");
-//       response.status(204).send("Cat Removed");
-//     } else {
-//       response.status(404).send("Cat not found :(");
-//     }
-//   } catch (error) {
-//     response.status(400).send(error);
-//   }
-// });
+app.delete("/pets/:id", async (request, response) => {
+  try {
+    let isDeleted = await model.Pets.findOneAndDelete({
+      _id: request.params.id,
+    });
+    if (isDeleted) {
+      console.log("Pet Removed");
+      response.status(204).send("Pet Removed");
+    } else {
+      response.status(404).send("Pet not found :(");
+    }
+  } catch (error) {
+    response.status(400).send(error);
+  }
+});
 
 app.listen(8080, () => {
   console.log("Server is running on http://localhost:8080");
