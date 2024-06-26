@@ -25,7 +25,7 @@ const PetSchema = new mongoose.Schema({
     required: [true, "Must Have Gender"],
   },
 });
-const AppSchema = new mongoose.Schema({
+const ApplicationSchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, "Must Have Name."],
@@ -45,9 +45,9 @@ const AppSchema = new mongoose.Schema({
 });
 
 const Pets = mongoose.model("Pets", PetSchema);
-const App = mongoose.model("App", AppSchema);
+const Application = mongoose.model("Application", ApplicationSchema);
 
 module.exports = {
   Pets: Pets,
-  App: App,
+  Application: Application,
 };
