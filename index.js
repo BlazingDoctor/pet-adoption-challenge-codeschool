@@ -41,16 +41,50 @@ app.post("/pets", async function (request, response) {
   }
 });
 
+app.get("/applications", async (request, response) => {
+  // get data from mongoDB
+  try {
+    let applications = await model.Application.find();
+    response.json(applications);
+    console.log(applications);
+  } catch {
+    response.status(400).send("generic error");
+  }
+});
+
+app.post("/applications", async function (request, response) {
+  const data = request.body;
+
+  try {
+    let newApplication = new model.Application({
+      name: data.name,
+      phoneNumber: data.phoneNumber,
+      email: data.email,
+      petId: data.petId,
+    });
+    let error = newApplication.validateSync();
+    if (error) {
+      response.status(400).send(error);
+      return;
+    }
+    await newApplication.save();
+    response.status(201).json(newApplication);
+  } catch (error) {
+    console.error("Error fetching pets:", error);
+    response.status(400).send(error);
+  }
+});
+
 app.delete("/pets/:id", async (request, response) => {
   try {
-    let isDeleted = await model.Cats.findOneAndDelete({
+    let isDeleted = await model.Pets.findOneAndDelete({
       _id: request.params.id,
     });
     if (isDeleted) {
-      console.log("Cat Removed");
-      response.status(204).send("Cat Removed");
+      console.log("Pet Removed");
+      response.status(204).send("Pet Removed");
     } else {
-      response.status(404).send("Cat not found :(");
+      response.status(404).send("Pet not found :(");
     }
   } catch (error) {
     response.status(400).send(error);
