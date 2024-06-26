@@ -6,18 +6,37 @@
   </head>
   <body>
     <div id="app">
-      <h2>Add Cat</h2>
-      <input v-model="newCats.name" type="text" />
-      <input v-model="newCats.count" type="number" />
-      <button v-on:click="addCats">addCat</button>
+      <h2>Add Pet</h2>
+      <input v-model="newPets.name" type="text" />
+      <input v-model="newPets.species" type="number" />
+      <input v-model="newPets.breed" type="text" />
+      <input v-model="newPets.age" type="number" />
+      <input v-model="newPets.gender" type="text" />
+      <button v-on:click="addPets">addPet</button>
 
-      <input v-model="deleteName" type="text" />
-      <button v-on:click="deleteCat(deleteName)">deleteCat</button>
+      <!-- <input v-model="deleteName" type="text" /> -->
+      <!-- <button v-on:click="deleteCat(deleteName)">deleteCat</button> -->
 
-      <h2>cats</h2>
+      <h2>Pets</h2>
       <ul>
-        <li v-for="cat in cats">
-          {{ cat.name }} - {{ cat.count }}
+        <li v-for="(pet, index) in pets">
+          {{ pet.name }} - {{ pet.species }} - {{ pet.breed }} - {{ pet.age }} -
+          {{ pet.gender }} - {{ pet.count }}
+        </li>
+      </ul>
+
+      <h2>Add Applications</h2>
+      <input v-model="newApplications.name" type="text" />
+      <input v-model="newApplications.phonenumber" type="number" />
+      <input v-model="newApplications.email" type="text" />
+      <input v-model="newApplications.petid" type="number" />
+      <button v-on:click="addApplications">addApplication</button>
+
+      <h2>Applications</h2>
+      <ul>
+        <li v-for="(application, index) in applications">
+          {{ application.name }} - {{ application.phonenumber }} - {{
+          application.email }} - {{ application.petid }}
         </li>
       </ul>
     </div>
