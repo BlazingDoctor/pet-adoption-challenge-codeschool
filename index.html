@@ -6,12 +6,12 @@
   </head>
   <body>
     <div id="app">
-      <button @click="showApplications = !showApplications">
-        Toggle Visibility
+      <button @click="applicationtoggle = !applicationtoggle">
+        Toggle Applications
       </button>
-      <button @click="showPets = !showPets">Toggle Pets</button>
+      <button @click="pettoggle = !pettoggle">Toggle Pets</button>
 
-      <div id="Pets" v-if="showPets">
+      <div id="Pets" v-if="pettoggle">
         <h2>Add Pet</h2>
         <input v-model="newPets.name" type="text" />
         <input v-model="newPets.species" type="number" />
@@ -32,7 +32,7 @@
         </ul>
       </div>
 
-      <div id="Applications" v-if="showApplications">
+      <div id="Applications" v-if="applicationtoggle">
         <h2>Add Applications</h2>
         <input v-model="newApplications.name" type="text" />
         <input v-model="newApplications.phonenumber" type="number" />
