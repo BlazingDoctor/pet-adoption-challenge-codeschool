@@ -153,6 +153,6 @@ Vue.createApp({
   created: function () {
     console.log("vue app loaded!");
     this.loadPets();
-    // this.loadApplications();
+    this.loadApplications();
   },
 }).mount("#app");
