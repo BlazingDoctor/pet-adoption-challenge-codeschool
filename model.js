@@ -1,24 +1,53 @@
 const mongoose = require("mongoose");
 require("dotenv").config();
 
-mongoose
-  .connect(process.env.MONGODB_URI)
-  .then(() => console.log("MongoDB connected"))
-  .catch((error) => console.error("MongoDB connection error:", error));
+mongoose.connect(process.env.MONGO_URL);
 
-const CatSchema = new mongoose.Schema({
+const PetSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: [true, "cat(s) must be named."],
+    required: [true, "Must Have Name"],
   },
-  count: {
+  species: {
+    type: String,
+    required: [true, "Must Have Species"],
+  },
+  breed: {
+    type: String,
+    required: [true, "Must Have Breed"],
+  },
+  age: {
     type: Number,
-    required: [true, "cat number must be an amount."],
+    required: [true, "Must Have Age"],
+  },
+  gender: {
+    type: String,
+    required: [true, "Must Have Gender"],
+  },
+});
+const AppSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: [true, "Must Have Name."],
+  },
+  phoneNumber: {
+    type: String,
+    required: [true, "Must Have Phone number"],
+  },
+  email: {
+    type: String,
+    required: [true, "Must Have Email"],
+  },
+  petId: {
+    type: String,
+    required: [true, "Must Have ID"],
   },
 });
 
-const Cats = mongoose.model("Cats", CatSchema);
+const Pets = mongoose.model("Pets", PetSchema);
+const App = mongoose.model("App", AppSchema);
 
 module.exports = {
-  Cats: Cats,
+  Pets: Pets,
+  App: App,
 };
