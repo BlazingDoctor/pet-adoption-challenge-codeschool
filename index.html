@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vue.js</title>
+  </head>
+  <body>
+    <div id="app">
+      <h2>Add Cat</h2>
+      <input v-model="newCats.name" type="text" />
+      <input v-model="newCats.count" type="number" />
+      <button v-on:click="addCats">addCat</button>
+
+      <input v-model="deleteName" type="text" />
+      <button v-on:click="deleteCat(deleteName)">deleteCat</button>
+
+      <h2>cats</h2>
+      <ul>
+        <li v-for="cat in cats">
+          {{ cat.name }} - {{ cat.count }}
+        </li>
+      </ul>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
