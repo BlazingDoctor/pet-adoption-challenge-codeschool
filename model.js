@@ -45,9 +45,9 @@ const AppSchema = new mongoose.Schema({
 });
 
 const Pets = mongoose.model("Pets", PetSchema);
-const App = mongoose.model("App", AppSchema);
+const Applications = mongoose.model("Applications", AppSchema);
 
 module.exports = {
   Pets: Pets,
-  App: App,
+  Applications: Applications,
 };
