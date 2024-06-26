@@ -119,24 +119,40 @@ Vue.createApp({
       }
     },
 
-    // deleteCat: async function (catname) {
-    //   //index is called from frontend main variable, so the fix for the bug when adding something
-    //   //and not able to delete it from expense tracker is to call the update function
-    //   //in addcats
-    //   let index = this.cats.findIndex((cat) => cat.name == catname);
-    //   console.log(index);
-    //   console.log("delete");
-    //   console.log(this.cats[index]._id);
-    //   let response = await fetch(`${URL}/cats/${this.cats[index]._id}`, {
-    //     method: "DELETE",
-    //   });
-    //   if (response.status == 204) {
-    //     this.loadCats();
-    //   } else {
-    //     console.log("Error deleting cats");
-    //     alert("Error deleting cats");
-    //   }
-    // },
+    deletePet: async function (index) {
+      //index is called from frontend main variable, so the fix for the bug when adding something
+      //and not able to delete it from expense tracker is to call the update function
+      //in addcats
+      console.log(index);
+      console.log("delete");
+      console.log(this.pets[index]._id);
+      let response = await fetch(`${URL}/pets/${this.pets[index]._id}`, {
+        method: "DELETE",
+      });
+      if (response.status == 204) {
+        this.loadPets();
+      } else {
+        console.log("Error deleting pets");
+        alert("Error deleting pets");
+      }
+    },
+
+    deleteApplication: async function (index) {
+      console.log("delete");
+      console.log(this.applications[index]._id);
+      let response = await fetch(
+        `${URL}/applications/${this.applications[index]._id}`,
+        {
+          method: "DELETE",
+        }
+      );
+      if (response.status == 204) {
+        this.loadApplications();
+      } else {
+        console.log("Error deleting application");
+        alert("Error deleting application");
+      }
+    },
   },
 
   created: function () {
