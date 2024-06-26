@@ -90,6 +90,21 @@ app.delete("/pets/:id", async (request, response) => {
     response.status(400).send(error);
   }
 });
+app.delete("/applications/:id", async (request, response) => {
+  try {
+    let isDeleted = await model.Application.findOneAndDelete({
+      _id: request.params.id,
+    });
+    if (isDeleted) {
+      console.log("Application Removed");
+      response.status(204).send("Application Removed");
+    } else {
+      response.status(404).send("Application not found :(");
+    }
+  } catch (error) {
+    response.status(400).send(error);
+  }
+});
 
 app.listen(8080, () => {
   console.log("Server is running on http://localhost:8080");
